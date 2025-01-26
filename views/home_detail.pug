@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	h1 Title: #{home.description}
+
+	p #[strong Owner: ]
+	a(href=home.owner.url) #{home.owner.family_name}
+	p #[strong Description:] #{home.description}
+	p #[strong Address:] #{home.address}
+	p #[strong State:] #{home.state}
+	
+	div(style='margin-left:20px;margin-top:20px')
+		h2(style='font-size: 1.5rem;') Types
+
+
+		each val in home_instances
+			hr
+			if val.status=='Available'
+				p.text-success #{val.status}
+			else if val.status=='Rented'
+				p.text-danger #{val.status}
+			else
+				p.text-warning #{val.status}
+			p #[strong Id: ]
+			a(href=val.url) #{val._id}
+		else
+			p There are no types of this home.
+
+		hr
+		p
+			a(href=home.url+'/update') Update Home

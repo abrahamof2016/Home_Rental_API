@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	h2 Dynamic content
+
+	p The Home_Rental website has the following record counts:
+
+	ul
+		li #[strong Registered Homes:] !{home_count}
+		li #[strong Active Homes:] !{home_instance_count}
+		li #[strong Homes available for rent:] !{home_instance_available_count}
+		li #[strong Owners:] !{owner_count}
+		li #[strong Types:] !{type_count}

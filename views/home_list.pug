@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	if home_list.length
+		ul
+			each home in home_list
+				li
+					a(href=home.url) #{home.description}
+	
+	else
+		p There are no homes.

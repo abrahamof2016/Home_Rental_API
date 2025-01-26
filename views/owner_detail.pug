@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1 Owner: #{owner.family_name}
+	p #{owner.Email}
+
+	div(stype='margin-left:20px;margin-top:20px')
+
+		h2(style='font-size: 1.5rem;') Homes
+		if owner_homes.length
+			dl
+				each home in owner_homes
+					dt
+						a(href=home.url) #{home.description}
+					dd #{home.address}
+		else
+			p This owner has no homes.
+		hr
+		p
+			a(href=owner.url+'/delete') Delete owner

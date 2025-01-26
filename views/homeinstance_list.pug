@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1= title
+
+	if homeinstance_list.length
+		ul
+			each val in homeinstance_list
+				li
+					a(href=val.url) #{val.home.description}:
+					if val.status=='Available'
+						span.text-success #{val.status}
+					else if val.status=='Rented'
+						span.text-danger #{val.status}
+					else
+						span.text-warning #{val.status}
+	else
+		p There is no avialable home.

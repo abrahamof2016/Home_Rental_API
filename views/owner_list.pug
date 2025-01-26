@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+
+	if owner_list.length
+		ul
+			each owner in owner_list
+				li
+					a(href=owner.url) #{owner.family_name}
+					| (#{owner.Email})
+	else
+		p There are no owners.
